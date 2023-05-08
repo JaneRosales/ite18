@@ -3,13 +3,16 @@ This document outlines the setup process for the
 # Nuxt.js Authentication with Strapi. 
 It provides step-by-step instructions on how to set up the development environment, install dependencies, and run the project.
 
-Prerequisites
+```bash
+## Prerequisites
 Before starting the setup process, ensure that the following prerequisites are met:
 
 1.  Basic understanding of Nuxt.js, Vue.js, and JavaScript
 2.  Familiarity with Strapi and its plugins.
 3.  Node.js and npm installed on your development machine.
+```
 
+```bash
 # To run a Nuxt.js Authentication with Strapi repository from GitHub, follow these steps:
 
 1. Clone the repository to your local machine:
@@ -30,7 +33,7 @@ or
 # yarn dev
 
 Open your web browser and navigate to http://localhost:3000 to view the application.
-
+```
 _____________________________________________________________________________________________________
 # frontend
 
