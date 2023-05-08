@@ -42,8 +42,8 @@ ________________________________________________________________________________
 # Usage
 To use the project, follow these steps:
 
-1 . Create an account by clicking the "Sign up" link in the navigation bar and filling out the registration form.
-2 . Log in to your account by clicking the "Sign in" link in the navigation bar and entering your credentials.
+1. Create an account by clicking the "Sign up" link in the navigation bar and filling out the registration form.
+2. Log in to your account by clicking the "Sign in" link in the navigation bar and entering your credentials.
 3. Once you are logged in, you will be redirected to a welcome page. If you want to log out, click the "Log out" link below the welcome masage. Or,
 4. You can access the home page by clicking the "Home" link in the navigation bar.
 
