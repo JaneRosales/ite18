@@ -1,6 +1,6 @@
 export default {
   axios: {
-    baseURL: process.env.STRAPI_URL || 'http://localhost:1337/api/auth/local'
+    baseURL: 'http://localhost:1337', // Replace with your Strapi API URL
   },
   auth: {
     // Options
@@ -14,11 +14,11 @@ export default {
         },
         endpoints: {
           login: {
-            url: 'http://localhost:1337/api/auth/local',
+            url: '/api/auth/local', // Update the URL path to match your Strapi login endpoint
             method: 'post',
           },
           user: {
-            url: 'http://localhost:1337/api/users/me',
+            url: '/api/users/me', // Update the URL path to match your Strapi user endpoint
             method: 'get',
           },
           logout: false,
@@ -45,7 +45,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['~plugins/axios'],
+  plugins: [
+    '~/plugins/strapi.js',
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -72,6 +74,6 @@ export default {
   },
 
   strapi: {
-    entities: ['users/me']
+    entities: ['users/me'],
   }
 }
