@@ -234,7 +234,7 @@ export default {
           description: this.description,
         }});
         setTimeout(() => {
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = '/';
           }, 500);
         // eslint-disable-next-line no-console
         console.log('Data added successfully:', response.data);
