@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="bg-gray-800 py-4 px-4">
-      <NuxtLink class="text-white p-2 hover:bg-gray-700" to="/">Home</NuxtLink>
-    </div>
+  <div class="container bg-blue-200">
+    <Navbar />
     <div class="max-w-md w-full mx-auto mt-8">
         <h1 class="text-3xl font-extrabold mb-4">Your profile</h1>
-        <form @submit.prevent="userLogin">
+        <form class="form" @submit.prevent="userLogin">
           <div class="mb-6">
             <label
               for="email"
@@ -81,24 +79,6 @@
             />
           </div>
         </form>
-      <p class="mb-6">You are now logged in.</p>
-      <button
-        class="
-          text-white
-          bg-red-700
-          hover:bg-red-800
-          focus:ring-4 focus:outline-none focus:ring-red-300
-          font-medium
-          rounded-lg
-          text-sm
-          px-5
-          py-2.5
-          text-center
-        "
-        @click="logout"
-      >
-        Sign Out
-      </button>
     </div>
   </div>
 </template>
@@ -110,11 +90,21 @@ export default {
   computed: {
     ...mapGetters(['loggedInUser']),
   },
-  methods: {
-    async logout() {
-      await this.$auth.logout();
-      this.$router.push('/'); // Redirect to the home page after logging out
-    },
-  },
 };
 </script>
+
+<style scoped>
+.container {
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+</style>

@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <div class="bg-gray-800 py-4 px-4">
-      <NuxtLink class="text-white p-2 hover:bg-gray-700" to="/">Home</NuxtLink>
-      <NuxtLink v-if="!isAuthenticated" class="text-white p-2 hover:bg-gray-700" to="/user/register">Sign Up</NuxtLink>
-    </div>
+  <div class="container bg-blue-200">
+    <Navbar />
     <div class="max-w-md w-full mx-auto mt-8">
-      <h1 class="text-3xl font-extrabold mb-4">Sign in</h1>
-      <form @submit.prevent="userLogin">
+      <h1 class="text-white text-3xl font-extrabold mb-4">Sign in</h1>
+      <form class="form" @submit.prevent="userLogin">
         <div v-if="err" class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
           {{ err }}
         </div>
@@ -30,28 +27,44 @@
 </template>
 
 <script>
-export default {
-  auth: 'guest',
-  data() {
-    return {
-      err: null,
-      email: '',
-      password: '',
-    };
-  },
-  methods: {
-    async userLogin() {
-      try {
-        await this.$auth.loginWith('local', { // Use 'local' as the provider
-          data: { identifier: this.email, password: this.password },
-        });
-        this.$router.push('/user/loggedin'); // Redirect after successful login
-      } catch (e) {
-        if (e.response && e.response.data && e.response.data.error) {
-          this.err = e.response.data.error.message;
-        }
+  export default {
+    auth: 'guest',
+    data() {
+      return {
+        err: null,
+        email: '',
+        password: '',
       }
     },
-  },
-}
+    methods: {
+      async userLogin() {
+        try {
+          await this.$auth.loginWith('local', {
+            data: {
+              identifier: this.email,
+              password: this.password
+            },
+          })
+        } catch (e) {
+          if (e.response) this.err = e.response.data.error.message
+        }
+      },
+    },
+  }
 </script>
+
+<style scoped>
+.container {
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+</style>

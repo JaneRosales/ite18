@@ -14,11 +14,11 @@ export default {
         },
         endpoints: {
           login: {
-            url: '/api/auth/local', // Update the URL path to match your Strapi login endpoint
+            url: 'http://localhost:1337/api/auth/local', // Update the URL path to match your Strapi login endpoint
             method: 'post',
           },
           user: {
-            url: '/api/users/me', // Update the URL path to match your Strapi user endpoint
+            url: 'http://localhost:1337/api/users/me', // Update the URL path to match your Strapi user endpoint
             method: 'get',
           },
           logout: false,
@@ -63,17 +63,12 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
+    '@nuxtjs/auth-next',
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
       'defu'
     ]
   },
-
-  strapi: {
-    entities: ['users/me'],
-  }
 }

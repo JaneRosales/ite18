@@ -1,20 +1,11 @@
 // frontend/pages/user/Register.vue
 
 <template>
-    <div>
-  <div class="bg-gray-800 py-4 px-4">
-    <NuxtLink class="text-white p-2 hover:bg-gray-700" to="/">Home</NuxtLink>
-    <NuxtLink
-      v-if="!isAuthenticated"
-      class="text-white p-2 hover:bg-gray-700"
-      to="/user/login"
-      >Sign In</NuxtLink
-    >
-  
-  </div>
+    <div class="container bg-blue-200">
+      <Navbar />
   <div class="max-w-md w-full mx-auto mt-8">
-    <h1 class="text-3xl font-extrabold mb-4">Sign up</h1>
-    <form @submit.prevent="userRegister">
+    <h1 class="text-3xl text-white font-extrabold mb-4">Sign up</h1>
+    <form class="form" @submit.prevent="userRegister">
         <div
         v-if="err"
         class="
@@ -212,3 +203,19 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.container {
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+</style>
